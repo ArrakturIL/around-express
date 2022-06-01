@@ -28,7 +28,7 @@ const createCard = (req, res) => {
     .then((newCard) => res.send(newCard))
     .catch((error) => {
       if (error.name === 'ValidationError') {
-        res.status(400).send({ message: 'NotValid Data' });
+        res.status(400).send({ message: `Validation Error! , ${error.message}` });
       } else {
         res
           .status(500)

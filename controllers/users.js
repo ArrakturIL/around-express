@@ -41,7 +41,7 @@ const createUser = (req, res) => {
     })
     .catch((error) => {
       if (error.name === 'ValidationError') {
-        res.status(400).send({ message: 'NotValid Data' });
+        res.status(400).send({ message: `Validation Error! , ${error.message}` });
       } else {
         res
           .status(500)
