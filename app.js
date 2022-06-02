@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 
@@ -9,6 +10,7 @@ const app = express();
 
 mongoose.connect('mongodb://localhost:27017/arounddb');
 
+app.use(helmet());
 app.use(express.json());
 
 app.use((req, res, next) => {
